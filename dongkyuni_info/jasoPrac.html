@@ -5,14 +5,13 @@
     <title>Title</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Hahmlet&display=swap" rel="stylesheet">
-</head>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet"></head>
 
 <style>
 
    *{
      font-size: 20px;
-     font-family: 'Black Han Sans', sans-serif;
+     font-family: 'Jua', sans-serif;
      margin:0 auto;
      line-height: 200%;
 }
@@ -35,13 +34,17 @@
       z-index: 1;
 }
    h1 {
-     text-align: center
+       font-size: 110%;
+     text-align: center;
+       color: bisque;
    }
    h2 {
-     text-align: center
+     text-align: center;
    }
    h4 {
-     text-align: center
+     text-align: center;
+       font-size: 140%;
+       color: black;
    }
    .top {
      background-color: #ea2424;
@@ -52,7 +55,7 @@
      position: unset;
    }
   .pouch{
-    background-color: #6964cc;
+    background-color: #ccc;
     display: flex;
     justify-content: space-between;
     align-content: center;
@@ -63,7 +66,7 @@
   }
 
 .one{
-  background-color:black;
+  background-color:gray;
   width:30%;
   margin: 0 auto;
   /* 스크롤바가 absolute로 들어가기 때문에
@@ -101,7 +104,7 @@
   -webkit-transition: all .5s;
   opacity: 1;
   /* 배경색을 상자색과 똑같이 맞춰준다 */
-  background-color:#6964cc;
+  background-color:#ccc;
 }
 
 /* 중요한 부분 */
@@ -164,15 +167,18 @@
 <body>
   <section class="dimmed">
       <div class="popup">
-          <div class="title" style="font-size:40px"><h4>김동균</h4></div>
+          <div class="title" style="font-size:40px"><h1>안녕하세요!</h1></div>
           <div class="content">
-              <p>이곳은 모달입니다</p>
+
+              <p><i>"내가 사랑하는 것들이 나를 설명한다"</i></p><br>
               <p>
-                    이곳은 모달입니다<br>이곳은 모달입니다<br>이곳은 모달입니다<br>이곳은 모달입니다<br>
-                    이곳은 모달입니다<br>이곳은 모달입니다<br>이곳은 모달입니다<br>이곳은 모달입니다<br>
-                    이곳은 모달입니다<br>이곳은 모달입니다<br>이곳은 모달입니다<br>이곳은 모달입니다<br>
+                  내가 좋아하는 그 모든 것들이 나를 설명합니다.<br>
+                  내가 좋아하는 사람, 내가 좋아하는 강아지,<br>
+                  내가 좋아하는 음식, 아주 사소한 것들, <br>
+                  예를 들어 늦잠자기, 산책하기 등등 그 모든것이요. <br>
               </p>
-              <p>감사합니다.</p>
+              <br><br><p><i>나를 설명하는 작은 TMI들, 시작합니다!</i></p>
+
           </div>
           <div class="cmd">
               <input type="button" name="btnclose" class="button" value="닫기" onclick="closebtn()">
@@ -185,7 +191,7 @@
     }
   </script>
 
-<div class="top"><p> 배너입니다(사라질 수 있습니다) </p></div>
+<div class="top"><p> 홈, 방명록 등의 링크가 들어갈 수 있습니다. </p></div>
 
 <div class="pouch">
 
@@ -208,7 +214,7 @@
       이들은 전체 인구의 3%에 불과하지만 다른 많은 성격을 압도하는 존재감을 뽐내며, 많은 비즈니스와 단체를 이끄는 역할을 할 때가 많습니다."
       </i>
       </p>
-
+ <br>
       <p>
 
         정말로 그런지는 잘 모르겠지만 설명만 봐도 기분이 좋네요.<br>
@@ -218,7 +224,8 @@
         위의 설명을 보면 언뜻 무서울것도 같지만...전혀 그렇진 않구요 ㅎㅎ<br>
         사람들 좋아하구 친구만나는 것 좋아합니다.<br>
         앞으로 더 알아가면서 함께 성장도 하고, 더욱 더 친해졌으면 좋겠습니다. 감사합니다<br>
-        앞으로 더 알아가면서 함께 성장도 하고, 더욱 더 친해졌으면 좋겠습니다. 감사해요<br>
+
+           <br> <br> <br> <br>
       </p>
     </div>
     <div class="cover-bar"></div>
@@ -242,6 +249,7 @@
         저는 기타맨이니까요"
         </i>
         </p>
+        <br>
        <p>
         기타는 참 매력있는 악기입니다.<br>
         다른 악기도 물론 다 훌륭하고 재밌지만 기타의 매력은 무엇보다 시작하기 쉽다는거죠!<br>
@@ -254,14 +262,16 @@
         아래는 제가 쳐본 곡들중 난이도별로 나눠서 추천드려봤어요.<br>
         당장 시작해봐요 우리!<br>
         </p>
+         <br>
         <p>
         1. Lost stars - Adam Levine <br>
-          <mark>링크가 들어갈 수 있습니다</mark>
+
           <br>
         무난하고 쉬운 입문곡입니다. <br>
         그러나 연주하면서 노래까지 해주신다면 당신은 이미 기타 초고수!<br>
         주위 분들의 오~하는 소리를 체험하실 수 있습니다
         </p>
+         <br>
         <p>
         2. 걱정말아요 그대 - 이적 (응답하라 1988)<br>
         이제부터는 단순 스트로크가 아닌 핑거스타일이 나옵니다.<br>
@@ -269,6 +279,7 @@
         마음은 답답하고 손가락은 아파 죽겠고 오른손은 자꾸 꼬이고.<br>
         하지만 핑거스타일의 매력은 포기할 수 없죠! 그럴 때 선택하기 좋은 곡입니다<br>
           </p>
+         <br>
       <p>
         3. 코타로 오시오 - wind song, 황혼<br>
         아주 유명한 곡이죠. 핑거스타일 입문곡이지만 입문곡인 척 하면서 아주 빡센친구들!<br>
@@ -276,12 +287,12 @@
         성취감을 얻어가는 것입니다.<br>
         이외에도 더 어려운 곡은 정말 많지만, 소개하는 곡들이다 보니 여기까지 할게요!<br>
         (사실 더 어려운 곡들은 제가 못쳐요)
-      </p>
+      </p> <br> <br> <br> <br> <br>
 
 
 
 
-오른손은 스트로크만 하면되는 곡입니다.
+
 
     </div>
     <div class="cover-bar"></div>
@@ -291,17 +302,26 @@
     <div class="two">
       <br>
 
-      <p><h4>소제목1</h4></p>
+      <p><h4>운동을 좋아합니다.</h4></p>
 
             <img class="left1"
            src="https://www.monsterzym.com/community/upload/coach/981401077_ffce79b5_healt_061_002.jpg">
-      <p><h4> 소제목입니다 </h4></p>
+      <p><h4> 3대 400 인자약 </h4></p>
       <br>
-            content<br>content<br>content<br>content<br>
-      content<br>content<br>content<br>content<br>
-      content<br>content<br>content<br>content<br>
-      content<br>content<br>content<br>content<br>
-      content<br>content<br>content<br>content<br>
+        <p style="color: #b2b555"><i>
+            "스쾃(squat)140<br>
+            데드리프트(Deadlift)160<br>
+            벤치프레스(Bench Press)100"</i></p>
+        <br>
+        4년차의 초라한 3대중량입니다. 인간 자체가 약한 게 맞는 것 같아요<br>
+        부상도 잘 당하고 자세도 안좋지만 운동을 좋아합니다. 너무 TMI죠? 좋아하니까 써봤어요<br>
+        헬스만 한 건 아닙니다. 다른 운동도 좋아해서 여러 운동을 해봤어요<br>
+        농구, 주짓수, 복싱 등등등...취미가 뭐냐? 라고 하면 자신있게 운동이라고 할 수 있습니다.<br>
+        운동을 하면 스트레스가 풀리는 체질인가봐요.<br>
+        언제든 같이 운동하고 싶으시면 연락 주세요. 환영합니다<br>
+
+        <br><br><br><br><br>
+
 
     </div>
     <div class="cover-bar"></div>
