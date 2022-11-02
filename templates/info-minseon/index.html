@@ -2,6 +2,8 @@
 <html lang="kr">
 <head>
     <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>민선이의 소개 페이지</title>
     <title>민선이의 소개 페이지</title>
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Brush+Script&display=swap"
           rel="stylesheet">
@@ -49,7 +51,7 @@
 
     .bg_txt {
         position: absolute;
-        top: 40%;
+        top: 100%;
         width: 100%;
         left: 25%;
         font-size: 100px;
@@ -61,7 +63,7 @@
 
     .bg_img > img {
         position: absolute;
-        top: 0;
+        top: 100%;
         left: 25%;
         width: 45%;
         height: 120%;
@@ -72,26 +74,33 @@
     .who {
         width: 100%;
         height: 800px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border: 1px solid aqua;
+        margin: 200px 0;
 
     }
 
-    .who > p {
-        font-size: 0;
+    .who_p {
+        font-size: 100px;
         color: white;
         font-weight: 900;
         text-align: center;
-        margin: 400px 0;
-        transition: 0.5s;
-        opacity: 0;
-
-
-    }
-
-    .who:hover  .who_p {
-        font-size: 100px;
+        margin: 10px 0 0 0;
+        padding: 0;
+        transition: 0.2s;
         opacity: 1;
-
-
+    }
+    .who_list{
+        font-size: 50px;
+        color: white;
+        font-weight: 900;
+        text-align: center;
+        transition: 0.2s;
+        opacity: 1;
+        margin:10px;
     }
 
 
@@ -289,7 +298,21 @@
 
     /*마지막 아티클*/
 </style>
+<script>
+    // 날아오르자 민선 올라오는 효과
+    setTimeout(function() {
+    $('.bg_txt').animate({top: '10%'},800);
+    $('.bg_img>img').animate({top: '0'},800);
+    });
 
+    // function whauScroll(){
+    //     if(document.documentElement.scrollTop > 600){
+    //         document.querySelector("#bbb > img").style.opacity = "1";
+    //     }
+    // }
+
+    // 스크롤 내릴시 나타나는 Who are you
+</script>
 <body>
 <header>
     <nav class="menuBar">
@@ -301,19 +324,22 @@
 <main>
     <div class="bg">
         <video muted autoplay loop>
-            <source src="static/vidios/fire.mp4">
+            <source src="../../static/vidio/fire.mp4">
         </video>
         <div class="bg_txt">
-            <span>날아오르라 김민선</span>
+            <span>날아오르자 민선!</span>
         </div>
         <div class="bg_img">
-            <img src="static/imgs/fly.png" alt="minseon">
+            <img src="../../static/img/fly.png" alt="minseon">
         </div>
 
     </div>
 
     <div class="who">
         <p class="who_p">Who are you?</p>
+        <p class="who_list who_name">이름 : 김민선</p>
+        <p class="who_list who_birth">생년월일 : 1994.07.12</p>
+<!--        <p class=""-->
     </div>
     <div class="info">
         <div class="info_atc info_MBTI">
@@ -339,7 +365,7 @@
             <div class="info_Teamwork_Overlay">
                 <div class="text_Teamwork">
                     <p class="text_ex_Teamwork">언제나 적극적인</p>
-                    <span>협업</span>
+                    <span>밝음</span>
                 </div>
             </div>
         </div>
