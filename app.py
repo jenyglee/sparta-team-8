@@ -11,6 +11,10 @@ db = client.dbsparta
 def home():
     return render_template('home.html')
 
+@app.route('/jaewon')
+def infoJaewon():
+    return render_template('info-jaewon/index.html')
+
 @app.route('/guest-book')
 def guestBook():
     return render_template('guest-book.html')
