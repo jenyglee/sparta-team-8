@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>민선이의 소개 페이지</title>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Brush+Script&display=swap"
+          rel="stylesheet">
+</head>
+<style>
+    body {
+        margin: 0 auto;
+        width: 1200px;
+        border: 1px solid salmon;
+        background-color: black;
+    }
+
+    /*메뉴바*/
+    .menuBar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+    }
+
+    .menu_Bar {
+        padding: 0 50px;
+    }
+
+    .menu_Bar > a {
+        text-decoration: none;
+        color: gray;
+        font-weight: 900;
+        font-size: 20px;
+    }
+
+    /*첫번째 아티클*/
+    .bg {
+        margin: 0 auto;
+        height: 505px;
+        padding: 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    video {
+        width: 100%
+    }
+
+    .bg_txt {
+        position: absolute;
+        top: 40%;
+        width: 100%;
+        left: 25%;
+        font-size: 100px;
+        font-weight: 900;
+        color: aliceblue;
+        font-family: 'Nanum Brush Script', cursive;
+        z-index: 999;
+    }
+
+    .bg_img > img {
+        position: absolute;
+        top: 0;
+        left: 25%;
+        width: 45%;
+        height: 120%;
+        z-index: 333;
+    }
+
+    /*두번때 아티클들*/
+    .who {
+        width: 100%;
+        height: 800px;
+
+    }
+
+    .who > p {
+        font-size: 0;
+        color: white;
+        font-weight: 900;
+        text-align: center;
+        margin: 400px 0;
+        transition: 0.5s;
+        opacity: 0;
+
+
+    }
+
+    .who:hover  .who_p {
+        font-size: 100px;
+        opacity: 1;
+
+
+    }
+
+
+    .info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+
+    }
+
+    .info_atc {
+        width: 250px;
+        height: 500px;
+        border: 1px solid white;
+        color: #ea2424;
+        position: relative;
+    }
+
+
+    .info_atc > .info_title {
+        position: absolute;
+        bottom: 25px;
+        left: 10px;
+        font-weight: 900;
+        font-size: 45px;
+    }
+
+    .info_MBTI:hover .info_title {
+        transition: .5s ease;
+        opacity: 0;
+    }
+
+    /* MBTI 오버레이 박스*/
+
+    .info_MBTI_Overlay {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 0;
+        opacity: 0;
+        transition: .5s ease;
+        background-color: #111111;
+        color: white;
+    }
+
+    .info_MBTI:hover .info_MBTI_Overlay {
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+        transition: .5s ease;
+    }
+
+    .text_MBTI {
+        position: absolute;
+        color: white;
+        font-weight: 900;
+        line-height: 45px;
+        font-size: 80px;
+        top: 35%;
+        left: 15%;
+        transition: .5s ease;
+        margin: 0;
+        padding: 0;
+    }
+
+    .text_MBTI > .text_ex_MBTI {
+        font-weight: 900;
+        font-size: 15px;
+        margin: 0;
+        padding: 5px;
+    }
+
+    /* Merit 오버레이 박스*/
+
+    .info_Merit_Overlay {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 0;
+        opacity: 0;
+        transition: .5s ease;
+        background-color: #111111;
+        color: white;
+    }
+
+    .info_Merit:hover .info_Merit_Overlay {
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+        transition: .5s ease;
+    }
+
+    .text_Merit {
+        position: absolute;
+        color: white;
+        font-weight: 900;
+        line-height: 45px;
+        font-size: 70px;
+        top: 35%;
+        left: 15%;
+        transition: .5s ease;
+
+        margin: 0;
+        padding: 0;
+    }
+
+    .text_Merit > .text_ex_Merit {
+        font-weight: 900;
+        font-size: 15px;
+        margin: 0;
+        padding: 5px;
+    }
+
+    /*팀웤 오버레이 박스*/
+
+    .info_Teamwork_Overlay {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 0;
+        opacity: 0;
+        transition: .5s ease;
+        background-color: #111111;
+        color: white;
+    }
+
+    .info_Teamwork:hover .info_Teamwork_Overlay {
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+        transition: .5s ease;
+    }
+
+    .text_Teamwork {
+        position: absolute;
+        color: white;
+        font-weight: 900;
+        line-height: 45px;
+        font-size: 80px;
+        top: 35%;
+        left: 15%;
+        transition: .5s ease;
+
+        margin: 0;
+        padding: 0;
+    }
+
+    .text_Teamwork > .text_ex_Teamwork {
+        font-weight: 900;
+        font-size: 15px;
+        margin: 0;
+        padding: 5px;
+    }
+
+    /* 목표 오버레이 박스*/
+
+    .info_Goals_Overlay {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 0;
+        opacity: 0;
+        transition: .5s ease;
+        background-color: #111111;
+        color: white;
+    }
+
+    .info_Goals:hover .info_Goals_Overlay {
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+        transition: .5s ease;
+    }
+
+    .text_Goals {
+        position: absolute;
+        color: white;
+        font-weight: 900;
+        line-height: 45px;
+        font-size: 80px;
+        top: 35%;
+        left: 15%;
+        transition: .5s ease;
+        margin: 0;
+        padding: 0;
+    }
+
+    .text_Goals > .text_ex_Goals {
+        font-weight: 900;
+        font-size: 40px;
+        margin: 0;
+        padding: 5px;
+    }
+
+    /*마지막 아티클*/
+</style>
+
+<body>
+<header>
+    <nav class="menuBar">
+        <span class="menu_Bar menuBar_Home "><a href=#> 홈 </a></span>
+        <span class="menu_Bar menuBar_GuestBook"><a href=#> 방명록 </a></span>
+    </nav>
+    <hr/>
+</header>
+<main>
+    <div class="bg">
+        <video muted autoplay loop>
+            <source src="../static/vidios/fire.mp4">
+        </video>
+        <div class="bg_txt">
+            <span>날아오르라 김민선</span>
+        </div>
+        <div class="bg_img">
+            <img src="../static/imgs/fly.png" alt="minseon">
+        </div>
+
+    </div>
+
+    <div class="who">
+        <p class="who_p">Who are you?</p>
+    </div>
+    <div class="info">
+        <div class="info_atc info_MBTI">
+            <p class="info_title">MBTI</p>
+            <div class="info_MBTI_Overlay">
+                <div class="text_MBTI">
+                    <p class="text_ex_MBTI">공감능력이 뛰어난</p>
+                    <spanp>INFP</spanp>
+                </div>
+            </div>
+        </div>
+        <div class="info_atc info_Merit">
+            <p class="info_title">Merit</p>
+            <div class="info_Merit_Overlay">
+                <div class="text_Merit">
+                    <p class="text_ex_Merit">끊임없이 배우려는</p>
+                    <spanp>열정</spanp>
+                </div>
+            </div>
+        </div>
+        <div class="info_atc info_Teamwork">
+            <p class="info_title">Teamwork</p>
+            <div class="info_Teamwork_Overlay">
+                <div class="text_Teamwork">
+                    <p class="text_ex_Teamwork">언제나 적극적인</p>
+                    <span>협업</span>
+                </div>
+            </div>
+        </div>
+        <div class="info_atc info_Goals">
+            <p class="info_title">Goals</p>
+            <div class="info_Goals_Overlay">
+                <div class="text_Goals">
+                    <p class="text_ex_Goals">Don't</p>
+                    <p class="text_ex_Goals">Panic</p>
+                    <p class="text_ex_Goals">Never</p>
+                    <p class="text_ex_Goals">Give Up</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="end">
+        <p>감사합니다.</p>
+    </div>
+
+</main>
+
+</body>
+</html>

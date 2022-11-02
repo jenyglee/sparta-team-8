@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Hahmlet&display=swap" rel="stylesheet">
+</head>
+
+<style>
+   *{
+     font-size: 20px;
+    font-family: 'Black Han Sans', sans-serif;
+}
+
+   body {
+     overflow:hidden;
+   }
+   h1 {
+     text-align: center
+   }
+   h2 {
+     text-align: center
+   }
+   h4 {
+     text-align: center
+   }
+   .left1 {
+     width: 33%;
+     min-width: 100%;
+     position: unset;
+   }
+  .pouch{
+    background-color: gray;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    width: 100%;
+    height: 1000px;
+    overflow: hidden
+  }
+
+.one{
+  background-color:yellowgreen;
+  width:33%;
+  margin: 0 auto;
+  /* 스크롤바가 absolute로 들어가기 때문에
+     여기다가 relative를 준다 */
+  position:relative;
+}
+
+.two{
+  height:1000px;
+  width: 100%;
+  overflow-y:scroll;
+  /* 여기다가 padding값 입력하면
+     스크롤바가 상자 밖으로 나감 */
+}
+
+.two::-webkit-scrollbar {
+  /* 스크롤바 너비 조절하는 부분 */
+  width: 10px;
+}
+.two::-webkit-scrollbar,
+.two::-webkit-scrollbar-thumb {
+  overflow:visible;
+  border-radius: 4px;
+}
+.two::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,.2);
+}
+
+.cover-bar{
+  width:10px;
+  height:100%;
+  position:absolute;
+  top:0;
+  right:0;
+  -webkit-transition: all .5s;
+  opacity: 1;
+  /* 배경색을 상자색과 똑같이 맞춰준다 */
+  background-color:yellowgreen;
+}
+
+/* 중요한 부분 */
+.one:hover .cover-bar {
+   opacity: 0;
+  -webkit-transition: all .5s;
+}
+
+</style>
+
+<body>
+<br>
+<div><p> 배너입니다 </p></div>
+
+<div class="pouch">
+
+
+  <div class="one">
+    <div class="two">
+      <br>
+
+      <p><h4>홈으로 가는 링크</h4></p>
+
+      <img class="left1"
+           src="https://img1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/4QF8/image/7Mw13xPIyhvGxTmb9P1IinFdlpA.png">
+      <br>
+      <p><h4> 소제목입니다 </h4></p>
+      content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+
+    </div>
+    <div class="cover-bar"></div>
+  </div>
+
+
+  <div class="one">
+    <div class="two">
+      <br>
+      <p><h4>홈으로 가는 링크</h4></p>
+      <img class="left1"
+           src="https://play-lh.googleusercontent.com/1UcLwRV-i4SQ9cYBh5f_ZcT5BLMy82txv5l3-imGg_rVpiE7jleGKYXbUNBmRUD3TA">
+      <p><h4> 소제목입니다 </h4></p>
+      content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+    </div>
+    <div class="cover-bar"></div>
+  </div>
+
+
+  <div class="one">
+    <div class="two">
+      <br>
+
+      <p><h4>홈으로 가는 링크</h4></p>
+
+            <img class="left1"
+           src="https://www.monsterzym.com/community/upload/coach/981401077_ffce79b5_healt_061_002.jpg">
+      <p><h4> 소제목입니다 </h4></p>
+      <br>
+            content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+      content<br>content<br>content<br>content<br>
+
+    </div>
+    <div class="cover-bar"></div>
+  </div>
+
+
+</div>
+</body>
+</html>
