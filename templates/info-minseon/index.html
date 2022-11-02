@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>민선이의 소개 페이지</title>
-    <title>민선이의 소개 페이지</title>
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Brush+Script&display=swap"
           rel="stylesheet">
 </head>
@@ -91,19 +90,22 @@
         transition: 1s;
         opacity: 0;
     }
-    .who_list{
+
+    .who_list {
         font-size: 50px;
         color: white;
         font-weight: 900;
         text-align: center;
 
-        margin:10px;
+        margin: 10px;
     }
-    #who_name{
+
+    #who_name {
         transition: 3s;
         opacity: 0;
     }
-    #who_birth{
+
+    #who_birth {
         opacity: 0;
         transition: 5s;
     }
@@ -305,22 +307,23 @@
 </style>
 <script>
     // 날아오르자 민선 올라오는 효과
-    setTimeout(function() {
-    $('.bg_txt').animate({top: '10%'},800);
-    $('.bg_img>img').animate({top: '0'},800);
-    });
+    setTimeout(function () {
+        $('.bg_txt').animate({top: '10%'}, 800);
+        $('.bg_img>img').animate({top: '0'}, 800);
+    },500);
 
-// 스크롤시 나타는 효과
-    function whauScroll(){
-        if(document.documentElement.scrollTop >= 600 && document.documentElement.scrollTop<= 1340){
+    // 스크롤시 나타는 효과
+    function whauScroll() {
+        if (document.documentElement.scrollTop >= 600 && document.documentElement.scrollTop <= 1340) {
             document.querySelector(".who_p").style.opacity = "1";
             document.querySelector("#who_name").style.opacity = "1";
             document.querySelector("#who_birth").style.opacity = "1";
 
-        }else {
+        } else {
         }
     }
-window.addEventListener("scroll",whauScroll);
+
+    window.addEventListener("scroll", whauScroll);
 
 </script>
 <body>
@@ -349,7 +352,7 @@ window.addEventListener("scroll",whauScroll);
         <p class="who_p">Who are you?</p>
         <p id="who_name" class="who_list">이름 : 김민선</p>
         <p id="who_birth" class="who_list">생년월일 : 1994.07.12</p>
-<!--        <p class=""-->
+        <!--        <p class=""-->
     </div>
     <div class="info">
         <div class="info_atc info_MBTI">
