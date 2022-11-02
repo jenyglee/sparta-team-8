@@ -12,7 +12,6 @@
     body {
         margin: 0 auto;
         width: 1200px;
-        border: 1px solid salmon;
         background-color: black;
     }
 
@@ -78,7 +77,6 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        border: 1px solid aqua;
         margin: 200px 0;
 
     }
@@ -90,17 +88,24 @@
         text-align: center;
         margin: 10px 0 0 0;
         padding: 0;
-        transition: 0.2s;
-        opacity: 1;
+        transition: 1s;
+        opacity: 0;
     }
     .who_list{
         font-size: 50px;
         color: white;
         font-weight: 900;
         text-align: center;
-        transition: 0.2s;
-        opacity: 1;
+
         margin:10px;
+    }
+    #who_name{
+        transition: 3s;
+        opacity: 0;
+    }
+    #who_birth{
+        opacity: 0;
+        transition: 5s;
     }
 
 
@@ -305,13 +310,18 @@
     $('.bg_img>img').animate({top: '0'},800);
     });
 
-    // function whauScroll(){
-    //     if(document.documentElement.scrollTop > 600){
-    //         document.querySelector("#bbb > img").style.opacity = "1";
-    //     }
-    // }
+// 스크롤시 나타는 효과
+    function whauScroll(){
+        if(document.documentElement.scrollTop >= 600 && document.documentElement.scrollTop<= 1340){
+            document.querySelector(".who_p").style.opacity = "1";
+            document.querySelector("#who_name").style.opacity = "1";
+            document.querySelector("#who_birth").style.opacity = "1";
 
-    // 스크롤 내릴시 나타나는 Who are you
+        }else {
+        }
+    }
+window.addEventListener("scroll",whauScroll);
+
 </script>
 <body>
 <header>
@@ -324,7 +334,7 @@
 <main>
     <div class="bg">
         <video muted autoplay loop>
-            <source src="/vidio/minseon01.mp4">
+            <source src="\static\vidio\fire.mp4">
         </video>
         <div class="bg_txt">
             <span>날아오르자 민선!</span>
@@ -337,8 +347,8 @@
 
     <div class="who">
         <p class="who_p">Who are you?</p>
-        <p class="who_list who_name">이름 : 김민선</p>
-        <p class="who_list who_birth">생년월일 : 1994.07.12</p>
+        <p id="who_name" class="who_list">이름 : 김민선</p>
+        <p id="who_birth" class="who_list">생년월일 : 1994.07.12</p>
 <!--        <p class=""-->
     </div>
     <div class="info">
