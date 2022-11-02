@@ -13,7 +13,7 @@ def home():
 
 @app.route('/jaewon')
 def infoJaewon():
-    return render_template('info-jaewon/index.html')
+    return render_template('info-jaewon.html')
 
 @app.route('/guest-book')
 def guestBook():
