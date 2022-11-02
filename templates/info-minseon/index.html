@@ -110,6 +110,16 @@
         transition: 5s;
     }
 
+    #who_info {
+        opacity: 0;
+        transition: 7s;
+    }
+
+    #who_info2 {
+        opacity: 0;
+        transition: 8s;
+    }
+
 
     .info {
         display: flex;
@@ -318,8 +328,11 @@
             document.querySelector(".who_p").style.opacity = "1";
             document.querySelector("#who_name").style.opacity = "1";
             document.querySelector("#who_birth").style.opacity = "1";
+            document.querySelector("#who_info").style.opacity = "1";
+            document.querySelector("#who_info2").style.opacity = "1";
 
         } else {
+
         }
     }
 
@@ -352,6 +365,8 @@
         <p class="who_p">Who are you?</p>
         <p id="who_name" class="who_list">이름 : 김민선</p>
         <p id="who_birth" class="who_list">생년월일 : 1994.07.12</p>
+        <p id="who_info" class="who_list">유치원 교사에서 이제는 개발자로!</p>
+        <p id="who_info2" class="who_list">날아오를 준비를 하고 있어요!</p>
         <!--        <p class=""-->
     </div>
     <div class="info">
