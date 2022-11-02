@@ -23,9 +23,13 @@
             rel="stylesheet"
     />
     <style>
+        body {
+            background-color: black;
+            padding-bottom: 150px;
+        }
+
         .wrap {
             width: 100%;
-            height: 2000px;
             background-color: black;
             display: flex;
             justify-content: center;
@@ -60,7 +64,8 @@
             flex-direction: column;
             align-items: center;
         }
-        #title{
+
+        #title {
             opacity: 0;
             transition: 0.5s;
         }
@@ -78,13 +83,14 @@
             background-image: url("static/img/jaewon01.jpeg");
             background-size: 144%;
             background-position: 2% 72%;
-            padding: 124px 0 0 104px;
+            padding: 80px 0 0 104px;
             color: white;
         }
 
         .info-title {
             font-size: 16px;
             margin-bottom: 11px;
+            color: #EA2424;
         }
 
         .info-description {
@@ -114,24 +120,111 @@
             ["항상 고마워요", "이 은혜", "꼭 갚을게요"],
         ];
         $(document).ready(function () {
-            putput();
+            changeTitle();
+            setInterval(() => {
+                changeTitle();
+            }, 18800);
         })
 
-        function putput() {
-            // const val01 = $("#text-01").text()
-            // const val02 = $("#text-02").text()
-            // const val03 = $("#text-03").text()
+        function changeTitle() {
             setTimeout(() => {
                 $("#title-01").text(data[0][0])
                 $("#title-02").text(data[0][1])
                 $("#title-03").text(data[0][2])
                 $('#title').css('opacity', '1');
-            }, 1000)
+            }, 300)
 
-            // setTimeout(() => {
-            //     $('#title').css('opacity', '1');
-            // }, 1000)
+            setTimeout(() => {
+                $('#title').css('opacity', '0');
+            }, 2000)
 
+            setTimeout(() => {
+                $("#title-01").text(data[1][0])
+                $("#title-02").text(data[1][1])
+                $("#title-03").text(data[1][2])
+                $('#title').css('opacity', '1');
+            }, 2500)
+
+            setTimeout(() => {
+                $('#title').css('opacity', '0');
+            }, 4200)
+
+            setTimeout(() => {
+                $("#title-01").text(data[2][0])
+                $("#title-02").text(data[2][1])
+                $("#title-03").text(data[2][2])
+                $('#title').css('opacity', '1');
+            }, 4700)
+
+            setTimeout(() => {
+                $('#title').css('opacity', '0');
+            }, 6400)
+
+            setTimeout(() => {
+                $("#title-01").text(data[3][0])
+                $("#title-02").text(data[3][1])
+                $("#title-03").text(data[3][2])
+                $('#title').css('opacity', '1');
+            }, 6900)
+
+            setTimeout(() => {
+                $('#title').css('opacity', '0');
+            }, 8100)
+
+            setTimeout(() => {
+                $("#title-01").text(data[4][0])
+                $("#title-02").text(data[4][1])
+                $("#title-03").text(data[4][2])
+                $('#title').css('opacity', '1');
+            }, 8600)
+
+            setTimeout(() => {
+                $('#title').css('opacity', '0');
+            }, 10300)
+
+            setTimeout(() => {
+                $("#title-01").text(data[5][0])
+                $("#title-02").text(data[5][1])
+                $("#title-03").text(data[5][2])
+                $('#title').css('opacity', '1');
+            }, 10800)
+
+            setTimeout(() => {
+                $('#title').css('opacity', '0');
+            }, 12000)
+
+            setTimeout(() => {
+                $("#title-01").text(data[6][0])
+                $("#title-02").text(data[6][1])
+                $("#title-03").text(data[6][2])
+                $('#title').css('opacity', '1');
+            }, 12500)
+
+            setTimeout(() => {
+                $('#title').css('opacity', '0');
+            }, 14200)
+
+            setTimeout(() => {
+                $("#title-01").text(data[7][0])
+                $("#title-02").text(data[7][1])
+                $("#title-03").text(data[7][2])
+                $('#title').css('opacity', '1');
+            }, 14700)
+
+            setTimeout(() => {
+                $('#title').css('opacity', '0');
+            }, 16400)
+
+            setTimeout(() => {
+                $("#title-01").text(data[8][0])
+                $("#title-02").text(data[8][1])
+                $("#title-03").text(data[8][2])
+                $('#title').css('opacity', '1');
+            }, 16900)
+
+            setTimeout(() => {
+                $('#title').css('opacity', '0');
+            }, 18600)
         }
 
     </script>
@@ -155,18 +248,19 @@
                     <p class="info-description">이재원</p>
                 </div>
                 <div>
-                    <h3 class="info-title">Birthday</h3>
-                    <p class="info-description">1993년 06월 06일</p>
+                    <h3 class="info-title">MBTI</h3>
+                    <p class="info-description">ESFJ</p>
                 </div>
                 <div>
-                    <h3 class="info-title">Adress</h3>
-                    <p class="info-description">경기도 부천시 원미구</p>
-                </div>
-                <div>
-                    <h3 class="info-title">Carrer</h3>
+                    <h3 class="info-title">커리어</h3>
                     <p class="info-description">
-                        Frontend Developer, UX/UI Designer
+                        Frontend Developer 9개월, UX/UI Designer 3년
                     </p>
+                </div>
+                <div>
+                    <h3 class="info-title">매력포인트</h3>
+                    <p class="info-description">어색함따위는 없다. 뛰어난 친화력과 공감능력!!</p>
+                    <p class="info-description">배움이 멈추면 끝. 자기계발이 곧 나의 활력소!!</p>
                 </div>
             </div>
         </section>
