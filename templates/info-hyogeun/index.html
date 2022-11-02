@@ -1,41 +1,27 @@
 <!doctype html>
-<html lang="kr">
- <meta charset="utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <style>
-
     body{
         background-color: black;
     }
-
     /*메뉴바*/
     .menuBar {
+        background-color: black;
         display: flex;
         justify-content: center;
         align-items: center;
-
-
     }
-
     .menu_Bar {
         padding: 0 50px;
     }
-
     .menu_Bar > a {
         text-decoration: none;
         color: gray;
         font-weight: 900;
         font-size: 20px;
-    }
-
-    * {
-        font-family: 'Gowun Dodum', sans-serif;
-    }
-    .Main_home{
-        background-image : linear-gradient(0deg, rgba(0, 0, 0, 0.5),
-        rgba(0, 0, 0, 0.5)),
-        url("../../static/img/hyogeun02.jpg");
     }
     .mytitle{
         width:1200px;
@@ -46,43 +32,44 @@
         background-position : center;
         background-size : cover;
         color : white;
-        margin: auto;
-        margin-top : 10px;
+        margin : 10px auto;
         display : flex;
         flex-direction : column;
         justify-content : center;
         align-items:center;
     }
-    .main_content{
-        background-color: aqua;
-        margin: 10px 10px auto;
-    }
     .point_one{
+        text-align:center;
         color : chartreuse;
     }
     .point_two{
+        text-align:center;
         color : gold;
     }
-    .ctt{
-        width : 48%;
-        height: 300px;
+    .Main_home{
+        width : 1200px;
+        margin : auto;
         display : flex;
-        margin : 10px auto 10px auto;
-        flex-direction : column;
+        flex-direction : row;
         justify-content : center;
-        align-items:center;
+    }
+    .ctt{
+        width : 400px;
+        height: 300px;
+        margin : auto;
         float:left;
         border-radius: 50px;
     }
     .content1{
-        background-color: cornflowerblue;
+        color : white;
     }
     .content2{
-        background-color: gray;
+        color : white;
         margin-left: 10px;
     }
 </style>
 <head>
+
 
     <nav class="menuBar">
         <span class="menu_Bar menuBar_Home "><a href=#> 홈 </a></span>
@@ -97,10 +84,10 @@
 </head>
 
 <body>
+<div class="mytitle">
+    <h1>안효근의 2색 매력</h1>
+</div>
 <div class="Main_home">
-    <div class="mytitle">
-        <h1>안효근의 2색 매력</h1>
-    </div>
     <div class = "main_content">
         <div class = "ctt content1">
             <h4 class = "point_one">첫번째 매력</h4>
