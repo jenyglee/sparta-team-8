@@ -18,6 +18,7 @@
         flex-direction: column;
         align-content: center;
         text-align-all: center;
+        color: white;
 
     }
 
@@ -75,6 +76,9 @@
         margin: 0 auto;
 
     }
+    h5 {
+        color: blue;
+    }
 
 </style>
 
@@ -87,8 +91,9 @@
 
 <div class="img">
 
-    <mark>이곳에는 이미지가 들어갈 예정입니다<br>
-    </mark>
+
+        <img src=../static/img/pokemon_image.webp>
+
 
 </div>
 
@@ -97,6 +102,13 @@
         Never give up<br></h1>
     <h3>날아오르라 팔색조여!!</h3>
     <h3>8조 </h3>
+    <h3>해야할 것들 : 상단 홈,방명록 링크(위치수정?)<br>
+    이름 부분 글자색 정하기, 내용 정하기<br>
+    폰트 정하기
+    </h3>
+
+<!--    http://localhost:63342/sparta-team-8/templates/home.html?_ijt=1q8g4msbcgj4eh40pk9ai89nsh&_ij_reload=RELOAD_ON_SAVE-->
+
 </div>
 <!--이곳은 카드가 들어가는 공간입니다.-->
 <!--이곳은 카드가 들어가는 공간입니다.-->
@@ -108,9 +120,9 @@
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title">재원님</h5>
+                    <h5 class="card-title">재원님(글자 색은 바뀔예정입니다)</h5>
                     <p class="card-text"> 이곳에 설명들이 들어갑니다.</p>
-                    <button class="cdbtn">자기소개 페이지 링크</button>
+                    <button type="button" class="cdbtn" onClick="location.href='info-jaewon/index.html'">자기소개 페이지 링크</button>
                 </div>
             </div>
         </div>
@@ -124,7 +136,7 @@
                 <div class="card-body">
                     <h5 class="card-title">민선님</h5>
                     <p class="card-text"> 이곳에 설명들이 들어갑니다.</p>
-                    <button class="cdbtn">자기소개 페이지 링크</button>
+                    <button type="button" class="cdbtn" onClick="location.href='info-minseon/index.html'">자기소개 페이지 링크</button>
                 </div>
             </div>
         </div>
@@ -136,9 +148,9 @@
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title">이름이 들어갑니다</h5>
+                    <h5 class="card-title">효근님</h5>
                     <p class="card-text"> 이곳에 설명들이 들어갑니다.</p>
-                    <button class="cdbtn">자기소개 페이지 링크</button>
+                    <button type="button" class="cdbtn" onClick="location.href='info-hyogeun/index.html'">자기소개 페이지 링크</button>
                 </div>
             </div>
         </div>
@@ -146,13 +158,13 @@
     <div class="card mb-3" style="max-width: 540px;">
         <div class="row g-0">
             <div class="col-md-4">
-                <img src="..." class="img-fluid rounded-start" alt="...">
+                <img src=../static/img/dkmain.jpg class="img-fluid rounded-start" alt="...">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title">이름이 들어갑니다</h5>
                     <p class="card-text"> 이곳에 설명들이 들어갑니다.</p>
-                    <button class="cdbtn">자기소개 페이지 링크</button>
+                    <button type="button" class="cdbtn" onClick="location.href='info-dongkyun/index.html'">자기소개 페이지 링크</button>
                 </div>
             </div>
         </div>
