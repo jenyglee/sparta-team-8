@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"
+    ></script>
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        section {
+            margin-bottom: 10px;
+        }
+
+        .wrap {
+            width: 100%;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 1200px;
+            color: white;
+        }
+
+        .guest-book {
+            margin-bottom: 10px;
+        }
+
+        #add-comment-form {
+            display: none;
+        }
+
+        .form-bg {
+            /*background-color: white;*/
+            margin-bottom: 10px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            padding: 28px 16px 20px;
+        }
+
+        .form-text {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .comment-list .list-group-item {
+            background-color: black;
+            border: 1px solid gray;
+            color: white;
+        }
+
+        #add-guest-book-form {
+            display: none;
+        }
+
+        #btn-add-guest-book {
+            margin-top: 50px;
+        }
+
+        .form-title {
+            margin-bottom: 30px;
+        }
+
+        .date {
+            font-size: 12px;
+            color: gray;
+            margin-left: 20px;
+            font-weight: normal;
+        }
+
+        .content-wrap{
+            width: 70%;
+
+        }
+
+        .btn-margin{
+            margin-top: 40px;
+        }
+    </style>
+    <script>
+        function handleOpenCommentForm() {
+            console.log("hey")
+            $("#add-comment-form").show();
+            // add-comment-form
+        }
+
+        function handleCloseCommentForm() {
+            console.log("hey")
+            $("#add-comment-form").hide();
+            // add-comment-form
+        }
+
+        function handleOpenGuestBookForm() {
+            $("#add-guest-book-form").show();
+            $("#btn-add-guest-book").hide()
+        }
+
+        function handleCloseGuestBookForm() {
+            $("#add-guest-book-form").hide();
+            $("#btn-add-guest-book").show()
+        }
+
+        function handleSubmit() {
+            // API create 기능
+            $.ajax({
+                type: "POST",
+                url: "민선님의 API 주소",
+                data: {},
+                success: function (response) {
+                    console.log(response)
+                },
+            })
+        }
+    </script>
+</head>
+<body>
+<main class="wrap">
+    <div class="container">
+        <h1>방명록</h1>
+
+        <section>
+            <div class="list-group guest-book">
+                <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">이재원<span class="date">2022-11-02</span></h5>
+                    </div>
+                    <p class="mb-1">Some placeholder content in a paragraph.</p>
+                    <button type="button" class="btn btn-outline-primary" onclick="handleOpenCommentForm()">댓글 달기
+                    </button>
+                </a>
+            </div>
+            <div class="form-bg" id="add-comment-form">
+                <form class="row g-3">
+                    <div class="col-md-3 form-text">
+                        <label for="inputEmail4" class="form-label">이름</label>
+                        <input type="email" class="form-control" id="inputEmail4" placeholder="이재원">
+                    </div>
+                    <div class="col-md-3 form-text">
+                        <label for="inputPassword4" class="form-label">비밀번호</label>
+                        <input type="password" class="form-control" id="inputPassword4" placeholder="****">
+                    </div>
+                    <div class="col-md-12 form-text">
+                        <label for="inputAddress" class="form-label">내용</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="내용을 입력해주세요.">
+                    </div>
+                    <div class="col-12 btn-margin">
+                        <button type="button" class="btn btn-primary">등록</button>
+                        <button type="button" class="btn btn-secondary" onclick="handleCloseCommentForm()">취소</button>
+                    </div>
+                </form>
+            </div>
+            <ol class="list-group comment-list">
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto content-wrap">
+                        <div class="fw-bold">김동균 <span class="date">2022-11-02</span></div>
+
+                        아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록
+                    </div>
+                    <button type="button" class="btn btn-danger btn-sm">삭제</button>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto content-wrap">
+                        <div class="fw-bold">김동균 <span class="date">2022-11-02</span></div>
+
+                        아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록
+                    </div>
+                    <button type="button" class="btn btn-danger btn-sm">삭제</button>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto content-wrap">
+                        <div class="fw-bold">김동균 <span class="date">2022-11-02</span></div>
+
+                        아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록
+                    </div>
+                    <button type="button" class="btn btn-danger btn-sm">삭제</button>
+                </li>
+            </ol>
+        </section>
+        <button type="button" class="btn btn-primary" id="btn-add-guest-book" onclick="handleOpenGuestBookForm()">
+            방명록 작성하기
+        </button>
+        <section class="form-bg" id="add-guest-book-form">
+            <h3 class="form-title">방명록 작성</h3>
+            <form class="row g-3">
+                <div class="col-md-3">
+                    <label for="inputEmail4" class="form-label">이름</label>
+                    <input type="email" class="form-control" id="inputEmail4">
+                </div>
+                <div class="col-md-3">
+                    <label for="inputPassword4" class="form-label">비밀번호</label>
+                    <input type="password" class="form-control" id="inputPassword4">
+                </div>
+                <div class="col-12">
+                    <label for="inputAddress" class="form-label">내용</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="내용을 입력해주세요.">
+                </div>
+                <div class="col-12 btn-margin">
+                    <button type="button" class="btn btn-primary" onclick="handleSubmit()">등록</button>
+                    <button type="button" class="btn btn-secondary" onclick="handleCloseGuestBookForm()">취소</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</main>
+</body>
+</html>
