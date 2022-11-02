@@ -21,7 +21,7 @@ def infoMinseon():
 
 @app.route('/hyogeun')
 def infoHyogeun():
-    return render_template('/info-hyogeun/info-hyogeun.html')
+    return render_template('/info-hyogeun/index.html')
 
 @app.route('/dongkyun')
 def infoDongkyun():
