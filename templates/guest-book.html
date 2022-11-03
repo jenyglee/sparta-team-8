@@ -166,30 +166,53 @@
             })
         }
 
-        function handleReadGuestBook() {
+         function handleReadGuestBook() {
             console.log("방명록 조회 기능")
-            // 방명록 조회
+             // 방명록 조회
             $.ajax({
                 type: "GET",
-                url: "/guest-book",
+                url: "/guest-book-2",
                 data: {},
                 success: function (response) {
-                    console.log(response['msg'])
+                    let rows = response['list']
+                    console.log(response['list'])
+                    for (let i = 0; i < rows.length; i++) {
+                        let name = rows[i]['name']
+                        let contents = rows[i]['contents']
+                        let date = rows[i]['date']
+                        let index = rows[i]['index']
+                        let temp_html = `
+                                            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                                                <div class="d-flex w-100 justify-content-between">
+                                                    <h5 class="mb-1">${name}<span class="date">${date}</span></h5>
+                                                    <button type="button" class="btn btn-danger btn-sm" onclick="handleRemoveGuestBook(${index})">삭제
+                                                    </button>
+                                                </div>
+
+                                                <p class="mb-1">${contents}</p>
+                                                <button type="button" class="btn btn-outline-primary" onclick="handleOpenCommentForm()">댓글 달기
+                                                </button>
+                                            </a>
+                         `
+                        $('#list-header').append(temp_html)
+                    }
                 }
             });
         }
 
 
-        function handleRemoveGuestBook() {
+        function handleRemoveGuestBook(index) {
             console.log("방명록 삭제 기능")
+            let password =
             // (민선님) 방명록 삭제 기능
             $.ajax({
                 type: "POST",
-                url: "민선님의 API 주소",
-                data: {},
+                url: "/guest-book-3",
+                data: {index_give:index},
                 success: function (response) {
-                    console.log(response)
-                },
+                    console.log(response['msc'])
+                    window.location.reload()
+                }
             })
         }
 
@@ -247,20 +270,8 @@
         <h1 class="main-title">방명록</h1>
 
         <section>
-            <div class="list-group guest-book">
-                <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">이재원<span class="date">2022-11-02</span></h5>
-                        <button type="button" class="btn btn-danger btn-sm" id="#btn-open-modal" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal"
-                                onclick="openGuestModal()">삭제
-                        </button>
-                    </div>
+            <div class="list-group guest-book" id="list-header">
 
-                    <p class="mb-1">Some placeholder content in a paragraph.</p>
-                    <button type="button" class="btn btn-outline-primary" onclick="handleOpenCommentForm()">댓글 달기
-                    </button>
-                </a>
             </div>
             <div class="form-bg" id="add-comment-form">
                 <form class="row g-3">

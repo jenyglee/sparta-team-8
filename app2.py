@@ -71,25 +71,10 @@ def guest_book_get():
 # 방명록 삭제하기
 @app.route('/guest-book-3', methods=["POST"])
 def guest_book_remove():
-    name_receive = request.form['name_give']
-    password_receive = request.form['password_give']
-    contents_receive = request.form['contents_give']
-    date_receive = request.form['date_give']
-    gstbook_index = list(db.guestbookTest.find({}, {'_id': False}))
-    gstbook_ID = len(gstbook_index) + 1
+    index_receive = request.form['index_give']
+    db.guestbookTest.delete_one({'index': int(index_receive)})
+    return jsonify({'msg': '버킷완료'})
 
-    doc = {
-        'index': gstbook_ID,
-        'name': name_receive,
-        'password': password_receive,
-        'contents': contents_receive,
-        'date': date_receive,
-
-    }
-    # 연습이니까 일단 guestbookTest에 넣음
-    db.guestbookTest.insert_one(doc)
-    print(doc)
-    return jsonify({'msc': '방명록 등록 완료'})
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
