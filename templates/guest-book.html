@@ -189,6 +189,7 @@
                 data: {},
                 success: function (response) {
                     console.log(response)
+                    $("#btn-modal-delete").attr("data-bs-dismiss", "modal")
                 },
             })
         }
@@ -215,12 +216,28 @@
                 data: {},
                 success: function (response) {
                     console.log(response)
+                    $("#btn-modal-delete").attr("data-bs-dismiss", "modal")
                 },
             })
         }
 
-        function closeModal() {
-            $("#btn-modal-delete").attr("data-bs-dismiss", "modal")
+        let modalType = "";
+
+        function openGuestModal() {
+            modalType= "guest";
+        }
+
+        function openCommentModal() {
+            modalType= "comment";
+        }
+
+        function submitModal() {
+            if(modalType === "guest"){
+                handleRemoveGuestBook()
+            }else if(modalType === "comment"){
+                handleRemoveComment()
+            }
+
         }
 
     </script>
@@ -236,8 +253,9 @@
                 <a href="#" class="list-group-item list-group-item-action" aria-current="true">
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1">이재원<span class="date">2022-11-02</span></h5>
-                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal" onclick="handleRemoveGuestBook()">삭제
+                        <button type="button" class="btn btn-danger btn-sm" id="#btn-open-modal" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"
+                                onclick="openGuestModal()">삭제
                         </button>
                     </div>
 
@@ -274,7 +292,7 @@
                         아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록
                     </div>
                     <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal" onclick="handleRemoveComment()">삭제
+                            data-bs-target="#exampleModal"  onclick="openCommentModal()">삭제
                     </button>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-start">
@@ -284,7 +302,7 @@
                         아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록
                     </div>
                     <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal" onclick="handleRemoveComment()">삭제
+                            data-bs-target="#exampleModal" onclick="openCommentModal()">삭제
                     </button>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-start">
@@ -294,7 +312,7 @@
                         아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록
                     </div>
                     <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal" onclick="handleRemoveComment()">삭제
+                            data-bs-target="#exampleModal" onclick="openCommentModal()">삭제
                     </button>
                 </li>
             </ol>
@@ -331,15 +349,15 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">삭제</h5>
+                <h5 class="modal-title" id="exampleModalLabel">비밀번호를 입력해주세요</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <input type="text" class="form-control" id="modal-password" placeholder="비밀번호를 입력해주세요">
+                <input type="text" class="form-control" id="modal-password" placeholder="****">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-                <button type="button" class="btn btn-danger" id="btn-modal-delete" onclick="closeModal()">삭제</button>
+                <button type="button" class="btn btn-danger" id="btn-modal-delete" onclick="submitModal()">삭제</button>
             </div>
         </div>
     </div>
