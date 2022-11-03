@@ -166,9 +166,9 @@
             })
         }
 
-         function handleReadGuestBook() {
+        function handleReadGuestBook() {
             console.log("방명록 조회 기능")
-             // 방명록 조회
+            // 방명록 조회
             $.ajax({
                 type: "GET",
                 url: "/guest-book-2",
@@ -185,7 +185,7 @@
                                             <a href="#" class="list-group-item list-group-item-action" aria-current="true">
                                                 <div class="d-flex w-100 justify-content-between">
                                                     <h5 class="mb-1">${name}<span class="date">${date}</span></h5>
-                                                    <button type="button" class="btn btn-danger btn-sm" onclick="handleRemoveGuestBook(${index})">삭제
+                                                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="openGuestModal(${index})">삭제
                                                     </button>
                                                 </div>
 
@@ -203,7 +203,7 @@
 
         function handleRemoveGuestBook(index) {
             console.log("방명록 삭제 기능")
-            let password =
+            console.log("index :", index)
             // (민선님) 방명록 삭제 기능
             $.ajax({
                 type: "POST",
@@ -244,18 +244,19 @@
 
         let modalType = "";
 
-        function openGuestModal() {
-            modalType= "guest";
+        function openGuestModal(data) {
+            modalType = "guest";
+            no = data
         }
 
         function openCommentModal() {
-            modalType= "comment";
+            modalType = "comment";
         }
 
         function submitModal() {
-            if(modalType === "guest"){
-                handleRemoveGuestBook()
-            }else if(modalType === "comment"){
+            if (modalType === "guest") {
+                handleRemoveGuestBook(no)
+            } else if (modalType === "comment") {
                 handleRemoveComment()
             }
 
@@ -301,7 +302,7 @@
                         아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록
                     </div>
                     <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal"  onclick="openCommentModal()">삭제
+                            data-bs-target="#exampleModal" onclick="openCommentModal()">삭제
                     </button>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-start">
