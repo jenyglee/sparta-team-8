@@ -76,5 +76,20 @@ def guest_book_remove():
     return jsonify({'msg': '버킷완료'})
 
 
+# def guestBookCommentsFind(data):
+#     comment = list(db.comments.find({'cno':int(data)}, {'_id':False}))
+#     return comment[0]['password']
+#
+# #삭제하기위한 class
+# @app.route("/guest-book-commentRemove", methods=["POST"])
+# def guestBookCommentsDel():
+#     password_receiver = request.form['password_give']
+#     del_receiver = request.form['del_give']
+#     if password_receiver == guestBookCommentsFind(del_receiver):
+#         db.comments.delete_one({'cno':int(del_receiver)})
+#         return jsonify({'msg':"삭제가 완료었습니다"})
+#     else :
+#         return jsonify({'msg':'비밀번가 틀렸습니다'})
+
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
