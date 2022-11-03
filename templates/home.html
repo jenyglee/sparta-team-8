@@ -88,14 +88,22 @@
     .navbar{
         position: fixed;
         top:0;
+        z-index: 200;
+               height: 50px;
+        width: 100%;
     }
 
     .navbar-nav{
         margin: 0 auto;
     }
+
+    h1{
+        font-size: 90px;
+    }
 </style>
 
 <body>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -132,10 +140,7 @@
         Never give up<br></h1>
     <h3>날아오르라 팔색조여!!</h3>
     <h3>8조 </h3>
-    <h3>해야할 것들 : 상단 홈,방명록 링크(위치수정?)<br>
-    이름 부분 글자색 정하기, 내용 정하기<br>
-    폰트 정하기
-    </h3>
+
 
 <!--    http://localhost:63342/sparta-team-8/templates/home.html?_ijt=1q8g4msbcgj4eh40pk9ai89nsh&_ij_reload=RELOAD_ON_SAVE-->
 
@@ -151,7 +156,7 @@
             <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title">이재원</h5>
-                    <p class="card-text">어색함 제로, 끝없는 배움</p>
+                    <p class="card-text">어색함 제로<br>끝없는 배움</p>
                     <button type="button" class="btn btn-primary btn-color" onClick="window.location.href='/jaewon'">자기소개 보기</button>
                 </div>
             </div>
@@ -161,9 +166,11 @@
         <div class="row g-0">
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title">민선님</h5>
-                    <p class="card-text"> 이곳에 설명들이 들어갑니다.</p>
-                    <button type="button" class="cdbtn" onClick="window.location.href='/minseon'">자기소개 페이지 링크</button>
+                    <h5 class="card-title">김민선</h5>
+                    <p class="card-text"> 끊임없이 배우려는 열정<br> 언제나 적극적인 밝음</p>
+                     <button type="button" class="btn btn-primary btn-color" onClick="window.location.href='/minseon'">자기소개 보기</button>
+
+<!--                    <button type="button" class="cdbtn" onClick="window.location.href='/minseon'">자기소개 페이지 링크</button>-->
                 </div>
             </div>
             <div class="col-md-4">
@@ -178,9 +185,10 @@
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title">효근님</h5>
-                    <p class="card-text"> 이곳에 설명들이 들어갑니다.</p>
-                    <button type="button" class="cdbtn" onClick="window.location.href='/minseon'" onClick="location.href='info-hyogeun/index.html'">자기소개 페이지 링크</button>
+                    <h5 class="card-title">안효근</h5>
+                    <p class="card-text"> 계획 변동에 문제없는 멘탈!<br> 잘 들어 주는 듣는이</p>
+                    <button type="button" class="btn btn-primary btn-color" onClick="window.location.href='/hyogeun'">자기소개 보기</button>
+
                 </div>
             </div>
         </div>
@@ -189,9 +197,10 @@
         <div class="row g-0">
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title">이름이 들어갑니다</h5>
-                    <p class="card-text"> 이곳에 설명들이 들어갑니다.</p>
-                    <button type="button" class="cdbtn" onClick="location.href='info-dongkyun/index.html'">자기소개 페이지 링크</button>
+                    <h5 class="card-title">김동균</h5>
+                    <p class="card-text"> 책임감있는 일처리<br>일할때도 놀때도 열심히</p>
+                    <button type="button" class="btn btn-primary btn-color" onClick="window.location.href='/dongkyun'">자기소개 보기</button>
+<!--                    <button type="button" class="cdbtn" onClick="window.location.href='/dongkyun'">자기소개 페이지 링크</button>-->
                 </div>
             </div>
             <div class="col-md-4">

@@ -4,6 +4,12 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
+<!--    이부분이 부트스트랩 navbar 부분입니다-->
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+
     <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -97,6 +103,20 @@
             font-size: 24px;
             margin-bottom: 14px;
         }
+                /*navbar css입니다*/
+
+    .navbar{
+        position: fixed;
+        top:0;
+        z-index: 200;
+               height: 50px;
+            width: 100%;
+    }
+
+    .navbar-nav{
+        margin: 0 auto;
+    }
+
 
         /** {*/
         /*    font-family: "Gowun Dodum", sans-serif;*/
@@ -230,6 +250,28 @@
     </script>
 </head>
 <body>
+
+<!--    navbar입니다-->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active text-light" aria-current="page" href="#" onClick="window.location.href='/'">홈</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#" onClick="window.location.href='/guest-book'">방명록</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
 <main class="wrap">
     <div class="container">
 
