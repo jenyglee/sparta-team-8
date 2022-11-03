@@ -126,10 +126,24 @@
 
         function handleCloseGuestBookForm() {
             $("#add-guest-book-form").hide();
-            $("#btn-add-guest-book").show()
+            $("#btn-add-guest-book").show(
         }
 
         function handleCreateGuestBook() {
+            console.log("방명록 추가 기능")
+            // let gstBook = $('#inputEmail4').val()
+            // (민선님) 방명록 추가 기능
+            $.ajax({
+                type: "POST",
+                url: "guest-book",
+                data: {},
+                success: function (response) {
+                    console.log(response)
+                },
+            })
+        }
+
+        function handleReadGuestBook() {
             console.log("방명록 추가 기능")
             // (민선님) 방명록 추가 기능
             $.ajax({
