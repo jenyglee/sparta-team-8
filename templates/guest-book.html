@@ -240,6 +240,24 @@
                 },
             })
         }
+
+        let modalType = "";
+
+        function openGuestModal() {
+            modalType= "guest";
+        }
+
+        function openCommentModal() {
+            modalType= "comment";
+        }
+
+        function submitModal() {
+            if (modalType === "guest") {
+                handleRemoveGuestBook()
+            } else if (modalType === "comment") {
+                handleRemoveComment()
+            }
+        }
     </script>
 </head>
 <body>
@@ -271,6 +289,39 @@
                 </form>
             </div>
             <ol class="list-group comment-list">
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto content-wrap">
+                            <div class="fw-bold">name
+                                <span class="date">date</span>
+                            </div>
+                            content
+                        </div>
+                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal" onclick="openCommentModal()">삭제
+                    </button>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto content-wrap">
+                            <div class="fw-bold">name
+                                <span class="date">date</span>
+                            </div>
+                            content
+                        </div>
+                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal" onclick="openCommentModal()">삭제
+                    </button>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto content-wrap">
+                            <div class="fw-bold">name
+                                <span class="date">date</span>
+                            </div>
+                            content
+                        </div>
+                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal" onclick="openCommentModal()">삭제
+                    </button>
+                </li>
             </ol>
         </section>
 
@@ -300,6 +351,23 @@
         방명록 작성하기
     </button>
 </main>
-
+<!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">비밀번호를 입력해주세요</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" id="modal-password" placeholder="****">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                    <button type="button" class="btn btn-danger" id="btn-modal-delete" onclick="submitModal()">삭제</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
