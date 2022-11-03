@@ -207,10 +207,10 @@
             // (민선님) 방명록 삭제 기능
             $.ajax({
                 type: "POST",
-                url: "민선님의 API 주소",
+                url: "/guest-book-3",
                 data: {},
                 success: function (response) {
-                    console.log(response)
+                    console.log(response['msc'])
                 },
             })
         }
@@ -249,17 +249,6 @@
 
         <section>
             <div class="list-group guest-book" id="list-header">
-                <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">이재원<span class="date">2022-11-02</span></h5>
-                        <button type="button" class="btn btn-danger btn-sm" onclick="handleRemoveGuestBook()">삭제
-                        </button>
-                    </div>
-
-                    <p class="mb-1">Some placeholder content in a paragraph.</p>
-                    <button type="button" class="btn btn-outline-primary" onclick="handleOpenCommentForm()">댓글 달기
-                    </button>
-                </a>
             </div>
             <div class="form-bg" id="add-comment-form">
                 <form class="row g-3">
