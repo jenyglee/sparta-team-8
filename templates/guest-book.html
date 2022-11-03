@@ -29,6 +29,9 @@
         section {
             margin-bottom: 10px;
         }
+        #commentList{
+            border: 8px solid gray;
+        }
 
         .wrap {
             width: 1200px;
@@ -113,6 +116,7 @@
     <script>
         $(document).ready(function () {
             handleReadGuestBook();
+            handleShowComment();
         });
 
         function handleOpenCommentForm() {
@@ -132,23 +136,22 @@
             $("#add-guest-book-form").hide();
             $("#btn-add-guest-book").show()
         }
-
-        function getToday() {
-            const date = new Date();
-            const year = date.getFullYear();
-            const month = ("0" + (1 + date.getMonth())).slice(-2);
-            const day = ("0" + date.getDate()).slice(-2);
-
-            return year + "-" + month + "-" + day;
-        }
-
+        //py에서 time함수를 이용해서 사용합니다.
+        // function getToday() {
+        //     const date = new Date();
+        //     const year = date.getFullYear();
+        //     const month = ("0" + (1 + date.getMonth())).slice(-2);
+        //     const day = ("0" + date.getDate()).slice(-2);
+        //
+        //     return year + "-" + month + "-" + day;
+        // }
         function handleCreateGuestBook() {
             console.log("방명록 백으로 데이터 보내기")
             // (민선님) 방명록 백으로 데이터 보내기
             let name = $('#inputEmail4').val();
             let password = $('#inputPassword5').val();
             let contents = $('#inputAddress1').val();
-            console.log(getToday())
+            // console.log(getToday())
             $.ajax({
                 type: "POST",
                 url: "/guest-book",
@@ -156,7 +159,7 @@
                     name_give: name,
                     password_give: password,
                     contents_give: contents,
-                    date_give: getToday()
+                    // date_give: getToday()
                 },
                 success: function (response) {
                     console.log(response)
@@ -194,6 +197,7 @@
                                                 </button>
                                             </a>
                          `
+                        //$('#Main-header').append(temp_html)
                         $('#list-header').append(temp_html)
                     }
                 }
@@ -216,32 +220,66 @@
             })
         }
 
+        function handleRemoveComment(data) {
+            console.log("방명록 댓글 삭제기능")
+            //  방명록에 달린 댓글 삭제 기능
+            let password = $('#modal-password').val()
+            let no = data
+            $.ajax({
+                type: "POST",
+                url: "/guest-book-commentRemove",
+                data: {password_give:password,del_give:no},
+                success: function (response) {
+                    alert(response["msg"])
+                    window.location.reload()
+                },
+            })
+        }
+
+        function handleShowComment() {
+            // 방명록에 달린 댓글 보여주기 기능
+            $.ajax({
+                type: "GET",
+                url: "/guest-book-comment1",
+                data: {},
+                success: function (response) {
+                    let rows = response['comments']
+                    for (let i=0 ; i<rows.length; i++){
+                        let name = rows[i]['name']
+                        let content = rows[i]['content']
+                        let date = rows[i]['date']
+                        let cno = rows[i]['cno']
+                        let temp_html =`<li class="list-group-item d-flex justify-content-between align-items-start">
+                                            <div class="ms-2 me-auto content-wrap">
+                                                <div class="fw-bold">${name}
+                                                    <span class="date">${date}</span>
+                                                </div>${content}
+                                            </div>
+                                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal" onclick="openCommentModal(${cno})">삭제</button>
+                                        </li>`
+                        $('#commentList').append(temp_html)
+                    }
+                },
+            })
+        }
+
         function handleCreateComment() {
             console.log("방명록에 댓글 추가 기능")
+            let name = $('#commentName').val()
+            let password = $('#commentPassword').val()
+            let contents = $('#inputContents').val()
             // (민선님) 방명록에 댓글 추가 기능
             $.ajax({
                 type: "POST",
-                url: "민선님의 API 주소",
-                data: {},
-                success: function (response) {
-                    console.log(response)
+                url: "/guest-book-commentIn",
+                data: {name_comment_give:name,password_comment_give:password,contents_comment_give:contents},
+                success: function (response){
+                    alert(response["msg"])
+                    window.location.reload()
                 },
             })
         }
-
-        function handleRemoveComment() {
-            console.log("방명록에 달린 댓글 삭제 기능")
-            // (민선님) 방명록에 달린 댓글 삭제 기능
-            $.ajax({
-                type: "POST",
-                url: "민선님의 API 주소",
-                data: {},
-                success: function (response) {
-                    console.log(response)
-                },
-            })
-        }
-
         let modalType = "";
 
         function openGuestModal(data) {
@@ -249,15 +287,16 @@
             no = data
         }
 
-        function openCommentModal() {
+        function openCommentModal(data2) {
             modalType = "comment";
+            cno = data2
         }
 
         function submitModal() {
             if (modalType === "guest") {
                 handleRemoveGuestBook(no)
             } else if (modalType === "comment") {
-                handleRemoveComment()
+                handleRemoveComment(cno)
             }
 
         }
@@ -271,22 +310,20 @@
         <h1 class="main-title">방명록</h1>
 
         <section>
-            <div class="list-group guest-book" id="list-header">
-
-            </div>
+            <div class="list-group guest-book" id="list-header"> </div>
             <div class="form-bg" id="add-comment-form">
                 <form class="row g-3">
                     <div class="col-md-3 form-text">
                         <label for="inputEmail4" class="form-label">이름</label>
-                        <input type="email" class="form-control" id="inputEmail5" placeholder="이재원">
+                        <input type="email" class="form-control" id="commentName" placeholder="이재원">
                     </div>
                     <div class="col-md-3 form-text">
                         <label for="inputPassword4" class="form-label">비밀번호</label>
-                        <input type="password" class="form-control" id="inputPassword4" placeholder="****">
+                        <input type="password" class="form-control" id="commentPassword" placeholder="****">
                     </div>
                     <div class="col-md-12 form-text">
                         <label for="inputAddress" class="form-label">내용</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="내용을 입력해주세요.">
+                        <input type="text" class="form-control" id="inputContents" placeholder="내용을 입력해주세요.">
                     </div>
                     <div class="col-12 btn-margin">
                         <button type="button" class="btn btn-primary" onclick="handleCreateComment()">등록</button>
@@ -294,38 +331,7 @@
                     </div>
                 </form>
             </div>
-            <ol class="list-group comment-list">
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="ms-2 me-auto content-wrap">
-                        <div class="fw-bold">김동균 <span class="date">2022-11-02</span></div>
-
-                        아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록
-                    </div>
-                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal" onclick="openCommentModal()">삭제
-                    </button>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="ms-2 me-auto content-wrap">
-                        <div class="fw-bold">김동균 <span class="date">2022-11-02</span></div>
-
-                        아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록
-                    </div>
-                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal" onclick="openCommentModal()">삭제
-                    </button>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="ms-2 me-auto content-wrap">
-                        <div class="fw-bold">김동균 <span class="date">2022-11-02</span></div>
-
-                        아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록 아주나이스한방명록
-                    </div>
-                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal" onclick="openCommentModal()">삭제
-                    </button>
-                </li>
-            </ol>
+            <div class="list-group comment-list"  id = "commentList"> </div>
         </section>
 
         <section class="form-bg" id="add-guest-book-form">
