@@ -155,7 +155,7 @@ def guestBookCommentsIn():
     contents_comment_receive = request.form['contents_comment_give']
     # book_comment_no_receive = request.form['book_no_comment_give']
     today_comment_time = time.strftime("%Y-%m-%d")
-    count_comment = list(db.bucket.find({}, {'_id': False}))
+    count_comment = list(db.comments.find({}, {'_id': False}))
     num_comment = len(count_comment) + 1
     cno_comment = len(count_comment) + 1
     doc = {
