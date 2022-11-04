@@ -9,7 +9,7 @@ client = MongoClient('mongodb+srv://test:sparta@cluster0.aik73au.mongodb.net/Clu
 db = client.dbsparta
 
 
-@app.route('/')  # 응~ 주소 뒤에 ('/')가 있으면 내가 응답할거야~~
+@app.route('/')
 def home():
     return render_template('home.html')
 
@@ -70,6 +70,25 @@ def guest_book_get():
     gstbook_list = list(db.guestbookTest.find({}, {'_id': False}))
     return jsonify({'list': gstbook_list})
 
+
+# 방명록 삭제하기
+@app.route('/guest-book-3', methods=["POST"])
+def guest_book_remove():
+    index_receive = request.form['index_give']
+    password_receive = request.form['password_give']
+    real_password = list(db.guestbookTest.find_one({'index':int(index_receive)},{'name':False,'date':False,'contents':False,'_id': False}))
+    print(real_password)
+    #리얼 패스워드에 리스트에 두개의 값이 저장이 될텐데.. 인덱스 값과 패스워드 값이 체크한 비밀번호 값과 같다면...
+
+    if password_receive == real_password[0]['password'] and index_receive == real_password[0]['index']:
+        db.guestbookTest.delete_one({'index':real_password[0]['index']})
+        return jsonify({'msg': "삭제가 완료되었습니다."})
+    else:
+        return jsonify({'msg': "비밀번호가 틀렸습니다."})
+
+
+
+
 #화면에받아올 데이터를 보여주기 위한 검색 class
 @app.route("/guest-book-comment1", methods=["GET"])
 def guestBookCommentsGet():
@@ -97,7 +116,7 @@ def guestBookCommentsDel():
         db.comments.delete_one({'cno':int(del_receiver)})
         return jsonify({'msg':"삭제가 완료었습니다"})
     else :
-        return jsonify({'msg':'비밀번가 틀렸습니다'})
+        return jsonify({'msg':'비밀번호가 틀렸습니다'})
 
 #데이터 베이스(DB)에 html에서받은 데이터 입력
 @app.route("/guest-book-commentIn", methods=["POST"])

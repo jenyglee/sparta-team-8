@@ -151,6 +151,7 @@
             let name = $('#inputEmail4').val();
             let password = $('#inputPassword5').val();
             let contents = $('#inputAddress1').val();
+
             // console.log(getToday())
             $.ajax({
                 type: "POST",
@@ -184,11 +185,12 @@
                         let contents = rows[i]['contents']
                         let date = rows[i]['date']
                         let index = rows[i]['index']
+                        let password = rows[i]['password']
                         let temp_html = `
                                             <a href="#" class="list-group-item list-group-item-action" aria-current="true">
                                                 <div class="d-flex w-100 justify-content-between">
                                                     <h5 class="mb-1">${name}<span class="date">${date}</span></h5>
-                                                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="openGuestModal(${index})">삭제
+                                                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="openGuestModal(${index},${password})">삭제
                                                     </button>
                                                 </div>
 
@@ -205,17 +207,21 @@
         }
 
 
-        function handleRemoveGuestBook(index) {
+        function handleRemoveGuestBook(indec,pass) {
             console.log("방명록 삭제 기능")
-            console.log("index :", index)
+            console.log("index :", indec)
+            console.log("password :", pass)
             // (민선님) 방명록 삭제 기능
             $.ajax({
                 type: "POST",
                 url: "/guest-book-3",
-                data: {index_give:index},
+                data: {
+                    index_give:indec,
+                    password_give:pass
+                },
                 success: function (response) {
-                    console.log(response['msc'])
-                    window.location.reload()
+                    console.log(response['msg'])
+                    // window.location.reload()
                 }
             })
         }
@@ -282,19 +288,21 @@
         }
         let modalType = "";
 
-        function openGuestModal(data) {
+        function openGuestModal(index,password) {
             modalType = "guest";
-            no = data
+            indec = index
+            pass = password
         }
 
         function openCommentModal(data2) {
             modalType = "comment";
             cno = data2
+
         }
 
         function submitModal() {
             if (modalType === "guest") {
-                handleRemoveGuestBook(no)
+                handleRemoveGuestBook(indec,pass)
             } else if (modalType === "comment") {
                 handleRemoveComment(cno)
             }
