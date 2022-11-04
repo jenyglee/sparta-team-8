@@ -185,12 +185,11 @@
                         let contents = rows[i]['contents']
                         let date = rows[i]['date']
                         let index = rows[i]['index']
-                        let password = rows[i]['password']
                         let temp_html = `
                                             <a href="#" class="list-group-item list-group-item-action" aria-current="true">
                                                 <div class="d-flex w-100 justify-content-between">
                                                     <h5 class="mb-1">${name}<span class="date">${date}</span></h5>
-                                                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="openGuestModal(${index},${password})">삭제
+                                                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="openGuestModal(${index})">삭제
                                                     </button>
                                                 </div>
 
@@ -207,10 +206,10 @@
         }
 
 
-        function handleRemoveGuestBook(indec,pass) {
+        function handleRemoveGuestBook(indec) {
             console.log("방명록 삭제 기능")
-            console.log("index :", indec)
-            console.log("password :", pass)
+            let pass = $('#modal-password').val()
+            console.log("pass : ", pass)
             // (민선님) 방명록 삭제 기능
             $.ajax({
                 type: "POST",
@@ -221,7 +220,8 @@
                 },
                 success: function (response) {
                     console.log(response['msg'])
-                    // window.location.reload()
+                    alert(response['msg'])
+                    window.location.reload()
                 }
             })
         }
@@ -288,10 +288,9 @@
         }
         let modalType = "";
 
-        function openGuestModal(index,password) {
+        function openGuestModal(index) {
             modalType = "guest";
             indec = index
-            pass = password
         }
 
         function openCommentModal(data2) {
@@ -302,7 +301,7 @@
 
         function submitModal() {
             if (modalType === "guest") {
-                handleRemoveGuestBook(indec,pass)
+                handleRemoveGuestBook(indec)
             } else if (modalType === "comment") {
                 handleRemoveComment(cno)
             }
