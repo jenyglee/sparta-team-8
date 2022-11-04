@@ -17,16 +17,29 @@
 </head>
 <style>
     body {
-        margin: 0 auto;
         width: 1200px;
         background-color: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
     }
 
-    /*메뉴바*/
+    main{
+        position: absolute;
+        top:25px;
+        left: 30%;
+        width: 1200px;
+        margin: 0 auto;
+    }
+
+
+    메뉴바
     .menuBar {
         display: flex;
         justify-content: center;
         align-items: center;
+        z-index: 999;
 
 
     }
@@ -41,6 +54,7 @@
         font-weight: 900;
         font-size: 20px;
     }
+
 
     /*첫번째 아티클*/
     .bg {
@@ -64,7 +78,7 @@
         font-weight: 900;
         color: aliceblue;
         font-family: 'Nanum Brush Script', cursive;
-        z-index: 999;
+        z-index: 555;
     }
 
     .bg_img > img {
@@ -363,96 +377,92 @@
 
 </script>
 <body>
-<!--navbar입니다-->
-<nav class="navbar navbar-expand-lg navbar-light bg-dark">
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active text-light" aria-current="page" href="#"
-                           onClick="window.location.href='/'">홈</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="#" onClick="window.location.href='/guest-book'">방명록</a>
-                    </li>
 
-                </ul>
-            </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active text-light" aria-current="page" href="#" onClick="window.location.href='/'">홈</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#" onClick="window.location.href='/guest-book'">방명록</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
+    <main>
+        <div class="bg">
+            <video muted autoplay loop>
+                <source src="\static\vidio\fire.mp4">
+            </video>
+            <div class="bg_txt">
+                <span>날아오르자 민선!</span>
+            </div>
+            <div class="bg_img">
+                <img src="\static\img\minseon01.png" alt="minseon">
+            </div>
 
-<main>
-    <div class="bg">
-        <video muted autoplay loop>
-            <source src="\static\vidio\fire.mp4">
-        </video>
-        <div class="bg_txt">
-            <span>날아오르자 민선!</span>
         </div>
-        <div class="bg_img">
-            <img src="\static\img\minseon01.png" alt="minseon">
+
+        <div class="who">
+            <p class="who_p">Who are you?</p>
+            <p id="who_name" class="who_list">이름 : 김민선</p>
+            <p id="who_birth" class="who_list">생년월일 : 1994.07.12</p>
+            <p id="who_info" class="who_list">유치원 교사에서 이제는 개발자로!</p>
+            <p id="who_info2" class="who_list">날아오를 준비를 하고 있어요!</p>
+            <!--        <p class=""-->
         </div>
-
-    </div>
-
-    <div class="who">
-        <p class="who_p">Who are you?</p>
-        <p id="who_name" class="who_list">이름 : 김민선</p>
-        <p id="who_birth" class="who_list">생년월일 : 1994.07.12</p>
-        <p id="who_info" class="who_list">유치원 교사에서 이제는 개발자로!</p>
-        <p id="who_info2" class="who_list">날아오를 준비를 하고 있어요!</p>
-        <!--        <p class=""-->
-    </div>
-    <div class="info">
-        <div class="info_atc info_MBTI">
-            <p class="info_title">MBTI</p>
-            <div class="info_MBTI_Overlay">
-                <div class="text_MBTI">
-                    <p class="text_ex_MBTI">공감능력이 뛰어난</p>
-                    <spanp>INFP</spanp>
+        <div class="info">
+            <div class="info_atc info_MBTI">
+                <p class="info_title">MBTI</p>
+                <div class="info_MBTI_Overlay">
+                    <div class="text_MBTI">
+                        <p class="text_ex_MBTI">공감능력이 뛰어난</p>
+                        <spanp>INFP</spanp>
+                    </div>
+                </div>
+            </div>
+            <div class="info_atc info_Merit">
+                <p class="info_title">Merit</p>
+                <div class="info_Merit_Overlay">
+                    <div class="text_Merit">
+                        <p class="text_ex_Merit">끊임없이 배우려는</p>
+                        <spanp>열정</spanp>
+                    </div>
+                </div>
+            </div>
+            <div class="info_atc info_Teamwork">
+                <p class="info_title">Teamwork</p>
+                <div class="info_Teamwork_Overlay">
+                    <div class="text_Teamwork">
+                        <p class="text_ex_Teamwork">언제나 적극적인</p>
+                        <span>밝음</span>
+                    </div>
+                </div>
+            </div>
+            <div class="info_atc info_Goals">
+                <p class="info_title">Goals</p>
+                <div class="info_Goals_Overlay">
+                    <div class="text_Goals">
+                        <p class="text_ex_Goals">Don't</p>
+                        <p class="text_ex_Goals">Panic</p>
+                        <p class="text_ex_Goals">Never</p>
+                        <p class="text_ex_Goals">Give Up</p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="info_atc info_Merit">
-            <p class="info_title">Merit</p>
-            <div class="info_Merit_Overlay">
-                <div class="text_Merit">
-                    <p class="text_ex_Merit">끊임없이 배우려는</p>
-                    <spanp>열정</spanp>
-                </div>
-            </div>
+        <div class="end">
+            <p>감사합니다.</p>
         </div>
-        <div class="info_atc info_Teamwork">
-            <p class="info_title">Teamwork</p>
-            <div class="info_Teamwork_Overlay">
-                <div class="text_Teamwork">
-                    <p class="text_ex_Teamwork">언제나 적극적인</p>
-                    <span>밝음</span>
-                </div>
-            </div>
-        </div>
-        <div class="info_atc info_Goals">
-            <p class="info_title">Goals</p>
-            <div class="info_Goals_Overlay">
-                <div class="text_Goals">
-                    <p class="text_ex_Goals">Don't</p>
-                    <p class="text_ex_Goals">Panic</p>
-                    <p class="text_ex_Goals">Never</p>
-                    <p class="text_ex_Goals">Give Up</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="end">
-        <p>감사합니다.</p>
-    </div>
 
-</main>
+    </main>
 
 </body>
 </html>
