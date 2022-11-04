@@ -6,9 +6,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>민선이의 소개 페이지</title>
 
-<!--    이부분이 부트스트랩 navbar 부분입니다-->
+    <!--    이부분이 부트스트랩 navbar 부분입니다-->
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
           crossorigin="anonymous">
 
@@ -323,15 +323,15 @@
 
     /*navbar css입니다*/
 
-        .navbar{
+    .navbar {
         position: fixed;
-        top:0;
+        top: 0;
         z-index: 200;
-               height: 50px;
-            width:100%;
+        height: 50px;
+        width: 100%;
     }
 
-    .navbar-nav{
+    .navbar-nav {
         margin: 0 auto;
     }
 
@@ -343,7 +343,7 @@
     setTimeout(function () {
         $('.bg_txt').animate({top: '10%'}, 800);
         $('.bg_img>img').animate({top: '0'}, 800);
-    },500);
+    }, 500);
 
     // 스크롤시 나타는 효과
     function whauScroll() {
@@ -363,32 +363,29 @@
 
 </script>
 <body>
-
-
-<header>
-<!--    navbar입니다-->
-
+<!--navbar입니다-->
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active text-light" aria-current="page" href="#" onClick="window.location.href='/'">홈</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-light" href="#" onClick="window.location.href='/guest-book'">방명록</a>
-        </li>
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active text-light" aria-current="page" href="#"
+                           onClick="window.location.href='/'">홈</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#" onClick="window.location.href='/guest-book'">방명록</a>
+                    </li>
 
-      </ul>
-    </div>
-  </div>
-</nav>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <hr/>
-</header>
+
 <main>
     <div class="bg">
         <video muted autoplay loop>
