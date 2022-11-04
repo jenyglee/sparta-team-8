@@ -29,7 +29,8 @@
         section {
             margin-bottom: 10px;
         }
-        #commentList{
+
+        #commentList {
             border: 8px solid gray;
         }
 
@@ -112,6 +113,21 @@
         .btn-margin {
             margin-top: 40px;
         }
+
+        /*navbar css입니다*/
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            z-index: 200;
+            height: 50px;
+            width: 100%;
+        }
+
+        .navbar-nav {
+            margin: 0 auto;
+        }
+
     </style>
     <script>
         $(document).ready(function () {
@@ -136,6 +152,7 @@
             $("#add-guest-book-form").hide();
             $("#btn-add-guest-book").show()
         }
+
         //py에서 time함수를 이용해서 사용합니다.
         // function getToday() {
         //     const date = new Date();
@@ -215,8 +232,8 @@
                 type: "POST",
                 url: "/guest-book-3",
                 data: {
-                    index_give:indec,
-                    password_give:pass
+                    index_give: indec,
+                    password_give: pass
                 },
                 success: function (response) {
                     console.log(response['msg'])
@@ -234,7 +251,7 @@
             $.ajax({
                 type: "POST",
                 url: "/guest-book-commentRemove",
-                data: {password_give:password,del_give:no},
+                data: {password_give: password, del_give: no},
                 success: function (response) {
                     alert(response["msg"])
                     window.location.reload()
@@ -250,12 +267,12 @@
                 data: {},
                 success: function (response) {
                     let rows = response['comments']
-                    for (let i=0 ; i<rows.length; i++){
+                    for (let i = 0; i < rows.length; i++) {
                         let name = rows[i]['name']
                         let content = rows[i]['content']
                         let date = rows[i]['date']
                         let cno = rows[i]['cno']
-                        let temp_html =`<li class="list-group-item d-flex justify-content-between align-items-start">
+                        let temp_html = `<li class="list-group-item d-flex justify-content-between align-items-start">
                                             <div class="ms-2 me-auto content-wrap">
                                                 <div class="fw-bold">${name}
                                                     <span class="date">${date}</span>
@@ -279,13 +296,14 @@
             $.ajax({
                 type: "POST",
                 url: "/guest-book-commentIn",
-                data: {name_comment_give:name,password_comment_give:password,contents_comment_give:contents},
-                success: function (response){
+                data: {name_comment_give: name, password_comment_give: password, contents_comment_give: contents},
+                success: function (response) {
                     alert(response["msg"])
                     window.location.reload()
                 },
             })
         }
+
         let modalType = "";
 
         function openGuestModal(index) {
@@ -311,13 +329,33 @@
     </script>
 </head>
 <body>
+<!--navbar입니다-->
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="#"
+                       onClick="window.location.href='/'">홈</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="#" onClick="window.location.href='/guest-book'">방명록</a>
+                </li>
 
+            </ul>
+        </div>
+    </div>
+</nav>
 <main class="wrap">
     <div class="container">
         <h1 class="main-title">방명록</h1>
 
         <section>
-            <div class="list-group guest-book" id="list-header"> </div>
+            <div class="list-group guest-book" id="list-header"></div>
             <div class="form-bg" id="add-comment-form">
                 <form class="row g-3">
                     <div class="col-md-3 form-text">
@@ -338,7 +376,7 @@
                     </div>
                 </form>
             </div>
-            <div class="list-group comment-list"  id = "commentList"> </div>
+            <div class="list-group comment-list" id="commentList"></div>
         </section>
 
         <section class="form-bg" id="add-guest-book-form">
