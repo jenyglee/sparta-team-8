@@ -76,12 +76,14 @@ def guest_book_get():
 def guest_book_remove():
     index_receive = request.form['index_give']
     password_receive = request.form['password_give']
-    real_password = list(db.guestbookTest.find_one({'index':int(index_receive)},{'name':False,'date':False,'contents':False,'_id': False}))
+    real_password = db.guestbookTest.find_one({'index':int(index_receive)},{'name':False,'date':False,'contents':False,'_id': False})
     print(real_password)
+    print(type(real_password['password']))
+    print(type(real_password['index']))
     #리얼 패스워드에 리스트에 두개의 값이 저장이 될텐데.. 인덱스 값과 패스워드 값이 체크한 비밀번호 값과 같다면...
 
-    if password_receive == real_password[0]['password'] and index_receive == real_password[0]['index']:
-        db.guestbookTest.delete_one({'index':real_password[0]['index']})
+    if password_receive == real_password['password'] and int(index_receive) == real_password['index']:
+        db.guestbookTest.delete_one({'index': real_password['index']})
         return jsonify({'msg': "삭제가 완료되었습니다."})
     else:
         return jsonify({'msg': "비밀번호가 틀렸습니다."})
